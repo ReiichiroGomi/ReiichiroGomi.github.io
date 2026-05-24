@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ▼ ブラウザのタブ・ブックマーク・検索結果に出るタイトル -->
+  <title>Reiichiro Gomi | 五味礼一郎</title>
+  <!-- ▼ 検索結果やSNSでシェアされたときに出る説明文 -->
+  <meta name="description" content="五味礼一郎（Reiichiro Gomi）作曲・編曲家。WELL DONE SABOTAGE Vo.Gt。作曲・アレンジのご依頼を承ります。">
+  <!-- ▼ SNS（X / Instagram / LINE 等）にURLを貼ったときに出る、サムネ＋タイトル＋説明文の設定。
+       本番URLが決まったら、og:image を「完全なアドレス」（https:// から始まるアドレス。
+       例: https://reiichirogomi.netlify.app/images/rei.jpg）に書き換えると、より確実に表示されます。 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="五味礼一郎 | Composer & Arranger">
+  <meta property="og:description" content="五味礼一郎（Reiichiro Gomi）作曲・編曲家。WELL DONE SABOTAGE Vo.Gt。作曲・アレンジのご依頼を承ります。">
+  <meta property="og:image" content="images/rei.jpg">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <!-- ▼ 構造化データ（Googleなどの検索結果で、名前・肩書き・SNSなどを綺麗に表示してもらうための情報）。
+       本番URLが決まったら、image と url を「完全なアドレス」（https:// から始まるアドレス。
+       例: https://reiichirogomi.netlify.app/images/rei.jpg）に書き換えると、より確実です。
+       ※ この { } の中は決まった書き方（JSONという形式）です。文字を変えるのはOKですが、
+         カンマ「,」やクォート「"」は消さないでください（消すと表示が壊れます）。 -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "五味礼一郎",
+  "alternateName": "Reiichiro Gomi",
+  "jobTitle": "作曲家・編曲家",
+  "description": "作曲・編曲家。WELL DONE SABOTAGE Vo.Gt。",
+  "image": "images/rei.jpg",
+  "sameAs": [
+    "https://x.com/reitter_jp",
+    "https://www.instagram.com/rei.wds/",
+    "https://www.youtube.com/@welldonesabotage01"
+  ],
+  "memberOf": {
+    "@type": "MusicGroup",
+    "name": "WELL DONE SABOTAGE"
+  },
+  "affiliation": {
+    "@type": "Organization",
+    "name": "T's Corporation"
+  }
+}
+</script>
+
+  <!-- ▼ フォント読み込み（インターネットに繋がっていれば適用。オフラインの場合は
+     パソコンに元から入っているフォントに自動で切り替わります）
+     Shippori Mincho ＝ 和文見出し用の明朝体
+     Playfair Display ＝ 欧文ディスプレイ用（イタリック体が特に映えます） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Shippori+Mincho:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ========================================================================
+       ★ ここから下は「見た目（デザイン）」の設定です。
+       　 触ってよいのは、すぐ下の :root { … } の中の色やフォントの指定だけ。
+       　 それより下（.hero、.work-item、@media… など）は触らなくてOKです。
+       　 もし色や見た目を大きく変えたい場合は、必ずファイルをコピーして
+       　 別名で保存したものを編集してください。
+       ======================================================================== */
+    :root {
+      /* ▼ サイトの色をまとめて管理。ここを変えると全体の色が一括で変わります
+         --accent＝差し色（リンク等） / --bg＝背景色 / --ink＝文字色
+         --hero-1,--hero-2＝上下の濃い背景。色は #ffffff 形式（16進カラー＝Webでの色の書き方）で指定 */
+      --bg: #f6f2ec;
+      --bg-alt: #ece4d9;
+      --hero-1: #16130f;
+      --hero-2: #2a211b;
+      --ink: #1c1916;
+      --muted: #6b6258;
+      --line: #d8cfc2;
+      --accent: #b5623a;
+      --accent-2: #46606b;
+      --card: #fffdf9;
+      /* ▼ フォント変数
+         --font-serif  ＝ Shippori Mincho（和文）＋ Georgia（フォールバック）
+         --font-display ＝ Playfair Display（欧文ディスプレイ）＋ Georgia（フォールバック） */
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      --font-serif: 'Shippori Mincho', Georgia, "Times New Roman", "Hiragino Mincho ProN", "Yu Mincho", YuMincho, serif;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --maxw: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 28px
+    }
+
+    .serif {
+      font-family: var(--font-serif)
+    }
+
+    /* ----- content is visible by default; GSAP applies the hidden state only if it loads ----- */
+    .reveal,
+    .h-anim {
+      will-change: opacity, transform, filter
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 28px;
+      transition: background .4s ease, padding .4s ease, box-shadow .4s ease;
+    }
+
+    header.scrolled {
+      background: rgba(246, 242, 236, .86);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 1px 0 var(--line);
+      padding: 12px 28px
+    }
+
+    /* ▼ ブランド名をPlayfair Displayのイタリックに */
+    .brand {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 18px;
+      letter-spacing: .04em;
+      color: #fff;
+      transition: color .4s ease
+    }
+
+    header.scrolled .brand {
+      color: var(--ink)
+    }
+
+    .nav-shell {
+      display: contents
+    }
+
+    nav.main {
+      display: flex;
+      gap: 30px;
+      align-items: center
+    }
+
+    nav.main a {
+      font-size: 13px;
+      letter-spacing: .12em;
+      color: rgba(255, 255, 255, .82);
+      transition: color .25s ease
+    }
+
+    header.scrolled nav.main a {
+      color: var(--muted)
+    }
+
+    nav.main a:hover {
+      color: var(--accent)
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 30px;
+      height: 24px;
+      position: relative
+    }
+
+    .menu-btn span {
+      display: block;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      margin: 5px 0;
+      transition: .3s
+    }
+
+    header.scrolled .menu-btn span {
+      background: var(--ink)
+    }
+
+    /* ---------- Hero ---------- */
+    /* ▼ 写真を背景に敷き、その上にグラデーションオーバーレイをかけます。
+       写真が暗すぎる／明るすぎる場合は rgba(22,19,15, .XX) の数値を増減させてください（0〜1） */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(160deg, rgba(22, 19, 15, .90) 0%, rgba(42, 33, 27, .78) 100%),
+        url('images/rei.jpg') center 18% / cover no-repeat;
+      color: #f3ece2;
+      overflow: hidden;
+    }
+
+    /* ▼ グレイン（フィルムノイズ）テクスチャ：写真の上に薄く乗せてアーティスト感を出す。
+       強度は opacity の数値で調整（現在 .06）。消したい場合は display:none にしてください */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      z-index: 1;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+      background-size: 160px 160px;
+      opacity: .06;
+      mix-blend-mode: overlay;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 6%;
+      right: 14%;
+      width: 680px;
+      height: 680px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181, 98, 58, .24), rgba(181, 98, 58, 0) 62%);
+      filter: blur(14px);
+      z-index: 2;
+      pointer-events: none;
+      will-change: transform, opacity;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background-image: radial-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px);
+      background-size: 3px 3px;
+      opacity: .5;
+    }
+
+    .hero .wrap {
+      position: relative;
+      z-index: 3;
+      width: 100%
+    }
+
+    /* ▼ ヒーロー：日本語名メイン、英字名サブの構成 */
+
+    /* ▼ 名前：Shippori Mincho（和文明朝）で日本語メイン */
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      line-height: 1.06;
+      font-size: clamp(48px, 9vw, 116px);
+      letter-spacing: .02em
+    }
+
+    /* ▼ 英字サブ：名前の下にイタリックで */
+    .hero h1 .en {
+      display: block;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(14px, 2.1vw, 23px);
+      letter-spacing: .14em;
+      color: rgba(243, 236, 226, .45);
+      margin-top: 18px
+    }
+
+    /* ▼ 細い区切り線 */
+    .hero .divider {
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: rgba(243, 236, 226, .22);
+      margin: 32px 0
+    }
+
+    .hero .tag {
+      font-size: clamp(9px, .9vw, 11px);
+      letter-spacing: .3em;
+      color: rgba(243, 236, 226, .36);
+      text-transform: uppercase
+    }
+
+    .roles {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .roles span {
+      font-size: 10px;
+      letter-spacing: .12em;
+      padding: 4px 13px;
+      border: 1px solid rgba(243, 236, 226, .12);
+      border-radius: 30px;
+      color: rgba(243, 236, 226, .38)
+    }
+
+    .scrollcue {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      color: rgba(243, 236, 226, .5);
+      font-size: 11px;
+      letter-spacing: .3em
+    }
+
+    .scrollcue::after {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 46px;
+      margin: 12px auto 0;
+      background: linear-gradient(rgba(243, 236, 226, .5), transparent);
+      animation: cue 2s ease-in-out infinite
+    }
+
+    @keyframes cue {
+
+      0%,
+      100% {
+        opacity: .3;
+        transform: scaleY(.6)
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleY(1)
+      }
+    }
+
+    /* ---------- Wave band ---------- */
+    .wave-sec {
+      background: var(--bg);
+      padding: 74px 0 78px;
+      text-align: center;
+      overflow: hidden
+    }
+
+    .wave-sec .label {
+      font-size: 11px;
+      letter-spacing: .4em;
+      color: var(--accent);
+      margin-bottom: 20px
+    }
+
+    .wave-sec svg {
+      width: 100%;
+      height: 150px;
+      display: block
+    }
+
+    #wavePath {
+      fill: none;
+      stroke: url(#waveGrad);
+      stroke-width: 2.2;
+      stroke-linecap: round
+    }
+
+    /* ---------- Section base ---------- */
+    section {
+      padding: 120px 0
+    }
+
+    /* ▼ セクション番号にPlayfair Displayのイタリックを使って品を出す */
+    .sec-head .num {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 13px;
+      letter-spacing: .28em;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 14px
+    }
+
+    .sec-head h2 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(30px, 5vw, 46px);
+      line-height: 1.2
+    }
+
+    .sec-head .sub {
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: .22em;
+      margin-top: 8px
+    }
+
+    /* ---------- About ---------- */
+    #about {
+      background: var(--bg)
+    }
+
+    .about-header {
+      margin-bottom: 52px;
+    }
+
+    .about-heading {
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 400;
+      letter-spacing: .08em;
+      line-height: 1;
+      color: var(--ink);
+      margin: 0 0 14px;
+    }
+
+    .about-subcopy {
+      font-family: var(--font-serif);
+      font-size: 13.5px;
+      letter-spacing: .12em;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start
+    }
+
+    .portrait {
+      aspect-ratio: 3/4;
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(150deg, #2a211b, #4a3a2e);
+    }
+
+    /* ▼ 写真を枠いっぱいに広げる */
+    .portrait img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ▼ 写真にわずかなビネット（周辺光量落ち）を重ねてフィルム的な質感に */
+    .portrait::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      box-shadow: inset 0 0 80px rgba(22, 19, 15, .35);
+    }
+
+    .about-body {
+      padding-top: 8px;
+    }
+
+    .about-role {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      letter-spacing: .14em;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+
+    .about-body p {
+      font-size: 14px;
+      line-height: 2.1;
+      margin-bottom: 24px;
+      color: var(--ink);
+    }
+
+    .about-works-label {
+      font-family: var(--font-display);
+      font-size: 10px;
+      letter-spacing: .34em;
+      color: var(--accent);
+      margin: 44px 0 18px;
+    }
+
+    .about-works-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .about-works-list li {
+      font-size: 12.5px;
+      letter-spacing: .1em;
+      color: var(--muted);
+      padding: 6px 0;
+      font-family: var(--font-sans);
+    }
+
+    .facts {
+      margin-top: 34px;
+      border-top: 1px solid var(--line)
+    }
+
+    .facts div {
+      display: flex;
+      gap: 24px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px
+    }
+
+    .facts dt {
+      width: 130px;
+      flex: none;
+      color: var(--muted);
+      letter-spacing: .1em
+    }
+
+    .facts dd {
+      color: var(--ink)
+    }
+
+    /* ---------- Works（ダーク背景） ---------- */
+    /* ▼ Worksセクションをヒーローと同じ暗色背景にしてコントラストを作る */
+    #works {
+      background: var(--hero-1)
+    }
+
+    .works-layout {
+      display: block
+    }
+
+    .works-aside {
+      min-width: 0;
+      margin-bottom: 50px
+    }
+
+    .works-main {
+      min-width: 0
+    }
+
+    .works-aside .sec-head {
+      position: static;
+      max-width: 100%
+    }
+
+    /* ▼ ダーク背景上のセクション見出し色 */
+    #works .sec-head .num {
+      color: var(--accent)
+    }
+
+    #works .sec-head h2 {
+      color: rgba(243, 236, 226, .95)
+    }
+
+    #works .sec-head .sub {
+      color: rgba(243, 236, 226, .38);
+      margin-top: 8px
+    }
+
+    .embed-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 24px;
+      margin-bottom: 46px
+    }
+
+    .embed {
+      aspect-ratio: 16/9;
+      border-radius: 8px;
+      background: #0e0b08;
+      color: rgba(243, 236, 226, .7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border: 1px dashed rgba(243, 236, 226, .18);
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .embed .play {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 1px solid rgba(243, 236, 226, .5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px
+    }
+
+    .embed small {
+      font-size: 11px;
+      letter-spacing: .16em;
+      color: rgba(243, 236, 226, .5);
+      max-width: 26ch
+    }
+
+    /* 音楽配信プレーヤー：PCは2列（Spotify／Apple Music）、スマホは1列 */
+    .stream-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+      margin: 34px 0 46px
+    }
+
+    @media(max-width:900px) {
+      .stream-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px
+      }
+    }
+
+    /* MVカルーセルのスワイプ目印ドット（スマホのみ表示） */
+    .mv-dots {
+      display: none
+    }
+
+    .mv-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(243, 236, 226, .22);
+      cursor: pointer;
+      transition: background .25s ease, transform .25s ease
+    }
+
+    .mv-dot.active {
+      background: var(--accent);
+      transform: scale(1.25)
+    }
+
+    /* ▼ バンド作品を「雑誌インデックス型リスト」に変更
+       年号（Playfair italic）＋曲名（明朝体）＋種別（小キャプス）の横並び */
+    .works-list {
+      border-top: 1px solid rgba(243, 236, 226, .14);
+      margin-bottom: 0
+    }
+
+    .work-item {
+      display: flex;
+      align-items: baseline;
+      gap: 28px;
+      padding: 19px 4px;
+      border-bottom: 1px solid rgba(243, 236, 226, .09);
+      transition: border-color .3s ease, transform .35s cubic-bezier(.16, 1, .3, 1);
+      cursor: default;
+    }
+
+    .work-item:hover {
+      border-color: var(--accent);
+      transform: translateX(8px)
+    }
+
+    .work-item .wi-yr {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 13px;
+      color: var(--accent);
+      min-width: 44px;
+      flex: none;
+      letter-spacing: .06em;
+    }
+
+    .work-item .wi-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: rgba(243, 236, 226, .90);
+      flex: 1;
+      line-height: 1.3;
+    }
+
+    .work-item .wi-type {
+      font-size: 10.5px;
+      color: rgba(243, 236, 226, .32);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      flex: none;
+    }
+
+    /* ▼ グループ見出し（ダーク背景用） */
+    .group-title {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 19px;
+      letter-spacing: .04em;
+      color: rgba(243, 236, 226, .88);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+      border-bottom: 1.5px solid var(--accent);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 6px 14px;
+    }
+
+    .group-title .en {
+      font-family: var(--font-sans);
+      font-size: 10.5px;
+      letter-spacing: .22em;
+      color: var(--accent);
+      text-transform: uppercase
+    }
+
+    .group-title+.group-title,
+    .works-list+.group-title {
+      margin-top: 54px
+    }
+
+    /* ▼ 楽曲提供クレジット（ダーク背景用に色を調整） */
+    .credit-list {
+      border-top: 1px solid rgba(243, 236, 226, .12)
+    }
+
+    .credit-row {
+      padding: 30px 0;
+      border-bottom: 1px solid rgba(243, 236, 226, .1)
+    }
+
+    .credit-row .credit-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 6px 14px;
+      margin-bottom: 18px
+    }
+
+    .credit-row .credit-head h3 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 22px;
+      letter-spacing: .02em;
+      color: rgba(243, 236, 226, .92);
+      margin: 0
+    }
+
+    .credit-row .credit-head .label {
+      font-size: 11px;
+      letter-spacing: .18em;
+      color: var(--accent);
+      text-transform: uppercase
+    }
+
+    .credit-songs {
+      list-style: none;
+      margin: 0 0 20px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .credit-songs li {
+      font-size: 13.5px;
+      color: rgba(243, 236, 226, .76);
+      line-height: 1.45;
+      padding-left: 14px;
+      position: relative
+    }
+
+    .credit-songs li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent)
+    }
+
+    .credit-songs li .role {
+      display: block;
+      font-size: 11.5px;
+      color: rgba(243, 236, 226, .36);
+      letter-spacing: .03em;
+      margin-top: 2px
+    }
+
+    .credit-embed {
+      margin-top: 4px;
+      max-width: 480px
+    }
+
+    .credit-embed .embed-todo {
+      border: 1px dashed rgba(243, 236, 226, .18);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      color: rgba(243, 236, 226, .38);
+      font-size: 12px;
+      letter-spacing: .06em
+    }
+
+    @media(max-width:900px) {
+      /* credit セクション モバイル修正 */
+      #works {
+        overflow-x: hidden;
+      }
+
+      .credit-row {
+        min-width: 0;
+      }
+
+      .credit-head {
+        min-width: 0;
+      }
+
+      .credit-head h3 {
+        font-size: 18px;
+        word-break: break-word;
+      }
+
+      .credit-songs {
+        min-width: 0;
+      }
+
+      .credit-songs li {
+        word-break: break-word;
+      }
+
+      .credit-embed {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .credit-embed iframe {
+        width: 100% !important;
+        max-width: 100%;
+      }
+
+      .work-item {
+        min-width: 0;
+      }
+
+      .work-item .wi-title {
+        min-width: 0;
+        overflow-wrap: break-word;
+      }
+    }
+
+    /* PC：埋め込みがある提供作の行は「クレジット左／動画右」の横並びに */
+    @media(min-width:901px) {
+      .credit-row:has(.credit-embed) {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 460px;
+        column-gap: 44px;
+        align-items: start
+      }
+
+      .credit-row:has(.credit-embed) .credit-head {
+        grid-column: 1 / -1
+      }
+
+      .credit-row:has(.credit-embed) .credit-songs {
+        grid-column: 1;
+        grid-row: 2;
+        grid-template-columns: minmax(0, 1fr);
+        margin-bottom: 0
+      }
+
+      .credit-row:has(.credit-embed) .credit-embed {
+        grid-column: 2;
+        grid-row: 2;
+        margin-top: 0;
+        max-width: none
+      }
+    }
+
+    /* ---------- Services ---------- */
+    #services {
+      background: var(--bg)
+    }
+
+    #services .sec-head {
+      margin-bottom: 54px
+    }
+
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 60px
+    }
+
+    .svc {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 30px 26px;
+      background: var(--card)
+    }
+
+    .svc .ic {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      color: var(--accent);
+      margin-bottom: 14px
+    }
+
+    .svc h3 {
+      font-size: 19px;
+      margin-bottom: 10px
+    }
+
+    .svc p {
+      font-size: 14px;
+      color: var(--muted)
+    }
+
+    .svc .price {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--line);
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--ink)
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      counter-reset: step
+    }
+
+    .flow .step {
+      position: relative;
+      padding: 0 18px;
+      text-align: center
+    }
+
+    /* ▼ フロー番号もPlayfair Displayのイタリックに */
+    .flow .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      display: block;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 30px;
+      color: var(--accent);
+      margin-bottom: 10px
+    }
+
+    .flow .step h4 {
+      font-size: 15px;
+      margin-bottom: 6px
+    }
+
+    .flow .step p {
+      font-size: 12.5px;
+      color: var(--muted)
+    }
+
+    /* ---------- Price list ---------- */
+    /* 料金表は <details> で折りたたみ。初期は閉じた状態で本文を占有しない */
+    .price-details {
+      margin: 6px 0 60px;
+    }
+
+    .price-details>summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 6px;
+      transition: opacity .2s ease;
+    }
+
+    .price-details>summary::-webkit-details-marker {
+      display: none
+    }
+
+    .price-details>summary::after {
+      content: "＋";
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: #fff;
+      transition: transform .25s ease;
+    }
+
+    .price-details[open]>summary {
+      border-radius: 6px 6px 0 0;
+    }
+
+    .price-details[open]>summary::after {
+      content: "−"
+    }
+
+    .price-details>summary:hover {
+      opacity: .85;
+    }
+
+    .pricing {
+      margin: 0;
+      padding: 24px 24px 8px;
+      border: 1px solid var(--accent);
+      border-top: none;
+      border-radius: 0 0 6px 6px;
+    }
+
+    .price-lead {
+      font-size: 11px;
+      letter-spacing: .4em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 28px
+    }
+
+    .price-group {
+      margin-bottom: 38px
+    }
+
+    .price-group:last-child {
+      margin-bottom: 0
+    }
+
+    .price-group h3 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 19px;
+      letter-spacing: .04em;
+      color: var(--ink);
+      padding-bottom: 12px;
+      border-bottom: 1.5px solid var(--accent-2);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 6px 14px;
+    }
+
+    .price-group h3 .en {
+      font-family: var(--font-sans);
+      font-size: 10.5px;
+      letter-spacing: .22em;
+      color: var(--accent-2);
+      text-transform: uppercase
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 6px;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .price-row .name {
+      font-size: 15px;
+      color: var(--ink);
+      letter-spacing: .02em
+    }
+
+    .price-row .amt {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--ink);
+      white-space: nowrap;
+      letter-spacing: .04em
+    }
+
+    .price-row.feature {
+      background: rgba(181, 98, 58, .07);
+      border-bottom: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 16px
+    }
+
+    .price-row.feature .amt {
+      color: var(--accent)
+    }
+
+    /* ---------- Contact ---------- */
+    #contact {
+      background: linear-gradient(160deg, var(--hero-1), var(--hero-2));
+      color: #f3ece2;
+      text-align: center
+    }
+
+    #contact h2 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(30px, 5vw, 48px);
+      margin-bottom: 18px
+    }
+
+    #contact p.lead {
+      color: rgba(243, 236, 226, .78);
+      max-width: 46ch;
+      margin: 0 auto 40px;
+      font-size: 15px
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 34px;
+      border-radius: 40px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: .1em;
+      cursor: pointer;
+      border: none;
+      transition: transform .25s ease, background .25s ease
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #c56e44
+    }
+
+    .socials {
+      margin-top: 46px;
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap
+    }
+
+    .socials a {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(243, 236, 226, .3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .25s
+    }
+
+    .socials a svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+      fill: currentColor;
+      flex: none
+    }
+
+    .socials a:hover {
+      background: rgba(243, 236, 226, .12);
+      border-color: var(--accent);
+      color: #fff
+    }
+
+    footer {
+      background: var(--hero-1);
+      color: rgba(243, 236, 226, .38);
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 12px;
+      letter-spacing: .12em
+    }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width:900px) {
+      section {
+        padding: 80px 0
+      }
+
+      .hero-glow {
+        width: 420px;
+        height: 420px;
+        right: -6%;
+        top: 10%
+      }
+
+      html {
+        overflow-x: clip
+      }
+
+      .nav-shell {
+        display: contents
+      }
+
+      nav.main {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 74%;
+        max-width: 320px;
+        background: var(--hero-2);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 34px;
+        transform: translateX(100%);
+        transition: transform .4s cubic-bezier(.16, 1, .3, 1);
+        z-index: 55;
+        pointer-events: auto
+      }
+
+      nav.main.open {
+        transform: none
+      }
+
+      nav.main a {
+        color: rgba(243, 236, 226, .9);
+        font-size: 16px
+      }
+
+      header.scrolled nav.main a {
+        color: rgba(243, 236, 226, .9)
+      }
+
+      /* backdrop-filter creates a containing block for fixed children -> drop it on mobile so the menu fills the viewport */
+      /* モバイルでは blur を外す代わりに背景を完全不透明にして透け防止 */
+      header.scrolled {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgb(246, 242, 236);
+        background: rgba(246, 242, 236, .96)
+      }
+
+      .menu-btn {
+        display: block;
+        z-index: 60
+      }
+
+      .menu-btn.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg)
+      }
+
+      .menu-btn.open span:nth-child(2) {
+        opacity: 0
+      }
+
+      .menu-btn.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg)
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 36px
+      }
+
+      .works-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px
+      }
+
+      .works-aside .sec-head {
+        position: static
+      }
+
+      .embed-row {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 14px;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 10px;
+        margin-bottom: 8px
+      }
+
+      .embed-row>iframe {
+        flex: 0 0 86%;
+        scroll-snap-align: center
+      }
+
+      .mv-dots {
+        display: flex;
+        justify-content: center;
+        gap: 9px;
+        margin: 4px 0 30px
+      }
+
+      .stream-row iframe[src*="spotify"] {
+        height: 152px
+      }
+
+      .stream-row iframe[src*="music.apple"] {
+        height: 175px
+      }
+
+      .svc-grid {
+        grid-template-columns: minmax(0, 1fr)
+      }
+
+      .flow {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 0
+      }
+
+      /* スマホではwork-itemの種別文字を省略 */
+      .work-item .wi-type {
+        display: none
+      }
+
+      .work-item {
+        gap: 16px
+      }
+    }
+
+    @media (max-width:520px) {
+      .work-item .wi-title {
+        font-size: 16px
+      }
+    }
+
+    /* respect reduced motion: kill looping keyframe */
+    @media (prefers-reduced-motion: reduce) {
+      .scrollcue::after {
+        animation: none
+      }
+
+      html {
+        scroll-behavior: auto
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ####################################################################
+     ★ このサイトの編集ガイド（はじめての方へ）★
+     ・文章を直すときは、< と > で囲まれた「タグ」の"外側"にある
+       日本語や英語の文章だけを書き換えます（< > のタグ自体は消さない）
+       例： <h2>プロフィール</h2> → <h2>自己紹介</h2>（"プロフィール" の所だけ書き換える）
+     ・どこが何の部分かは、下のコメント【◯◯】で示しています
+     ・色や見た目は、上の <style>〜</style> の中（変更は慎重に）
+     ・動きの設定や「お問い合わせメールの宛先」は、一番下の
+       <script>〜</script> の中にあります
+     ・タグの中の class="reveal" や class="h-anim" は消さないでください
+       （消すと、スクロールで「ふわっと出てくる」アニメが効かなくなります）
+     ・大きく変えるときは、必ずこのファイルを別名でコピーしてから
+     #################################################################### -->
+
+  <header id="siteHeader">
+    <a class="brand" href="#hero" data-target="hero">Reiichiro&nbsp;Gomi</a>
+    <div class="nav-shell" id="navShell">
+      <nav class="main" id="navMain">
+        <a href="#about" data-target="about">About</a>
+        <a href="#works" data-target="works">Works</a>
+        <a href="#services" data-target="services">Services</a>
+        <a href="#contact" data-target="contact">Contact</a>
+      </nav>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="menu" aria-expanded="false"
+      aria-controls="navMain"><span></span><span></span><span></span></button>
+  </header>
+
+  <!-- ====================================================================
+     【HERO／トップ】最初に大きく表示される部分
+     ・写真は css の background: url('images/rei.jpg') で表示しています
+       → 別の写真に変えたい場合は style の .hero のところの
+         url('images/rei.jpg') のファイル名を書き換えてください
+     ・名前・肩書き・キャッチコピー・対応できる仕事のタグを変えられます
+     ==================================================================== -->
+  <section class="hero" id="hero" style="padding-top:0;padding-bottom:0">
+    <div class="hero-glow" id="heroGlow"></div>
+    <div class="wrap">
+      <!-- ▼ メイン名前。日本語がメイン、英字がサブ -->
+      <h1 class="h-anim">五味礼一郎<span class="en">Reiichiro Gomi</span></h1>
+      <!-- ▼ 区切り線 -->
+      <span class="divider h-anim"></span>
+      <!-- ▼ 肩書き（英字）。変えたい場合はここを編集 -->
+      <p class="tag h-anim">Composer &nbsp;/&nbsp; Arranger &nbsp;/&nbsp; Guitarist &nbsp;/&nbsp; Vocalist</p>
+      <!-- ▼ 対応タグ（日本語）。<span>〜</span> を増やす／減らすと個数が変わります -->
+      <div class="roles">
+        <span class="h-anim">作曲</span><span class="h-anim">作詞</span><span class="h-anim">編曲</span><span class="h-anim">ギター</span><span class="h-anim">ミックス</span>
+      </div>
+    </div>
+    <div class="scrollcue">SCROLL</div>
+  </section>
+
+  <!-- ====================================================================
+     【SOUND／波線】装飾の波の線です。基本はさわらなくてOK
+     ==================================================================== -->
+  <div class="wave-sec" id="waveSec">
+    <div class="wrap">
+      <p class="label">SOUND</p>
+      <svg viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="waveGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#46606b" />
+            <stop offset="0.5" stop-color="#b5623a" />
+            <stop offset="1" stop-color="#46606b" />
+          </linearGradient>
+        </defs>
+        <path id="wavePath"
+          d="M0.0,100.0 L6.0,101.3 L12.0,103.0 L18.0,104.9 L24.0,106.7 L30.0,108.2 L36.0,109.1 L42.0,109.2 L48.0,108.4 L54.0,106.6 L60.0,104.0 L66.0,100.7 L72.0,97.0 L78.0,93.3 L84.0,89.9 L90.0,87.2 L96.0,85.6 L102.0,85.3 L108.0,86.3 L114.0,88.6 L120.0,92.1 L126.0,96.4 L132.0,101.1 L138.0,105.8 L144.0,110.0 L150.0,113.1 L156.0,114.9 L162.0,115.1 L168.0,113.5 L174.0,110.3 L180.0,105.7 L186.0,100.1 L192.0,94.0 L198.0,88.1 L204.0,83.0 L210.0,79.3 L216.0,77.5 L222.0,77.9 L228.0,80.6 L234.0,85.5 L240.0,92.4 L246.0,100.8 L252.0,110.0 L258.0,119.2 L264.0,127.7 L270.0,134.6 L276.0,139.3 L282.0,141.3 L288.0,140.4 L294.0,136.4 L300.0,129.7 L306.0,120.8 L312.0,110.2 L318.0,98.9 L324.0,87.7 L330.0,77.5 L336.0,69.2 L342.0,63.4 L348.0,60.5 L354.0,60.6 L360.0,63.7 L366.0,69.3 L372.0,76.8 L378.0,85.4 L384.0,94.2 L390.0,102.2 L396.0,108.5 L402.0,112.4 L408.0,113.5 L414.0,111.5 L420.0,106.6 L426.0,99.0 L432.0,89.5 L438.0,78.8 L444.0,68.1 L450.0,58.4 L456.0,50.6 L462.0,45.5 L468.0,44.0 L474.0,46.1 L480.0,52.1 L486.0,61.6 L492.0,74.0 L498.0,88.4 L504.0,103.8 L510.0,119.0 L516.0,132.9 L522.0,144.5 L528.0,152.9 L534.0,157.6 L540.0,158.4 L546.0,155.4 L552.0,149.0 L558.0,139.8 L564.0,129.0 L570.0,117.4 L576.0,106.3 L582.0,96.7 L588.0,89.5 L594.0,85.3 L600.0,84.4 L606.0,86.9 L612.0,92.5 L618.0,100.6 L624.0,110.2 L630.0,120.4 L636.0,130.1 L642.0,138.3 L648.0,144.0 L654.0,146.5 L660.0,145.5 L666.0,140.8 L672.0,132.7 L678.0,121.7 L684.0,108.7 L690.0,94.6 L696.0,80.7 L702.0,68.0 L708.0,57.5 L714.0,50.2 L720.0,46.4 L726.0,46.5 L732.0,50.5 L738.0,57.9 L744.0,68.1 L750.0,80.0 L756.0,92.9 L762.0,105.4 L768.0,116.6 L774.0,125.6 L780.0,131.7 L786.0,134.6 L792.0,134.0 L798.0,130.3 L804.0,123.9 L810.0,115.6 L816.0,106.2 L822.0,96.7 L828.0,88.0 L834.0,80.9 L840.0,76.2 L846.0,74.3 L852.0,75.3 L858.0,79.0 L864.0,85.1 L870.0,93.0 L876.0,101.9 L882.0,110.9 L888.0,119.2 L894.0,125.8 L900.0,130.3 L906.0,132.1 L912.0,131.1 L918.0,127.2 L924.0,120.9 L930.0,112.5 L936.0,102.9 L942.0,92.7 L948.0,82.9 L954.0,74.1 L960.0,67.2 L966.0,62.4 L972.0,60.2 L978.0,60.6 L984.0,63.4 L990.0,68.3 L996.0,74.8 L1002.0,82.2 L1008.0,89.8 L1014.0,97.0 L1020.0,103.2 L1026.0,108.0 L1032.0,111.1 L1038.0,112.4 L1044.0,111.9 L1050.0,109.9 L1056.0,106.7 L1062.0,102.9 L1068.0,98.9 L1074.0,95.2 L1080.0,92.2 L1086.0,90.3 L1092.0,89.5 L1098.0,90.1 L1104.0,91.8 L1110.0,94.5 L1116.0,97.8 L1122.0,101.4 L1128.0,105.0 L1134.0,108.1 L1140.0,110.5 L1146.0,112.0 L1152.0,112.5 L1158.0,112.1 L1164.0,110.8 L1170.0,108.8 L1176.0,106.6 L1182.0,104.3 L1188.0,102.3 L1194.0,100.8 L1200.0,100.0">
+        </path>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+     【ABOUT／プロフィール】自己紹介。写真と文章を入れます
+     ・「［ ポートレート写真をここに ］」はあとで写真に差し替えます
+     ・<p>〜</p> の中の文章を自由に書き換えてください
+     ==================================================================== -->
+  <!-- ====================================================================
+     【ABOUT／プロフィール】自己紹介。写真と文章を入れます
+     ・写真は images/rei.jpg を差し替えると変更できます
+     ・テキストは <p> タグ内を自由に書き換えてください
+     ・WORKSの項目は <ul class="about-works-list"> 内の <li> を増減して編集できます
+     ==================================================================== -->
+  <section id="about">
+    <div class="wrap">
+      <!-- ▼ セクション見出し。ABOUTの大きさは .about-heading の font-size で調整できます -->
+      <div class="about-header reveal">
+        <h2 class="about-heading">ABOUT</h2>
+      </div>
+      <div class="about-grid">
+        <!-- ▼ 写真。src のファイル名を自分の写真に合わせてください（縦長3:4が綺麗です） -->
+        <div class="portrait reveal"><img src="images/rei.jpg" alt="五味礼一郎"></div>
+        <div class="about-body">
+          <!-- ▼ 肩書き -->
+          <p class="about-role reveal">作曲家／編曲家／ボーカリスト／ギタリスト</p>
+          <!-- ▼ プロフィール本文。<p>〜</p> を増減して自由に編集できます -->
+          <p class="reveal">東京を拠点に、歌モノを軸とした楽曲制作を行う。ポップス、ロック、バラード、バンドサウンドを中心に、打ち込みやエレクトロ要素を取り入れたアレンジまで対応。</p>
+          <p class="reveal">ロックバンド「WELL DONE SABOTAGE」Vo/Gt。<br>作曲家事務所 <a href="http://www.tscorp.jp/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px">T's Corporation</a> 所属。</p>
+          <p class="reveal">歌に宿る感情、アーティストごとの温度、楽曲が持つ意思を大切に、メロディ・アレンジ・サウンドの面から一曲の魅力を引き出す。</p>
+          <!-- ▼ WORKSラベルと項目一覧。<li> を増減して編集できます -->
+          <p class="about-works-label reveal">WORKS</p>
+          <ul class="about-works-list reveal">
+            <li>Composition / Arrangement</li>
+            <li>Lyrics / Topline</li>
+            <li>Guitar / Bass / Vocal</li>
+            <li>Sound Production</li>
+            <li>Mixing / Mastering</li>
+            <li>Recording / Vocal Direction</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+     【WORKS／制作実績・試聴】作品リストと試聴プレーヤー
+     ・バンド作品は「雑誌インデックス型リスト」に変更（年号＋タイトル＋種別の横並び）
+       → <div class="work-item"> が1行ぶん。コピーで増やせます
+     ・楽曲提供は従来どおり <div class="credit-row"> が1アーティスト分
+     ・試聴は <iframe> を貼ると再生できるようになります
+     ==================================================================== -->
+  <section id="works">
+    <div class="wrap">
+      <div class="works-layout">
+        <div class="works-aside">
+          <div class="sec-head reveal">
+            <span class="num">Works</span>
+            <h2>制作実績・試聴</h2>
+            <p class="sub">DISCOGRAPHY &amp; SAMPLES</p>
+          </div>
+        </div>
+        <div class="works-main">
+
+          <!-- 【グループ1】WELL DONE SABOTAGE（礼さん本人のバンド作品） -->
+          <h3 class="group-title reveal">WELL DONE SABOTAGE<span class="en">Band Discography</span></h3>
+
+          <!-- ▼ 試聴プレーヤー（YouTube / Spotify / Apple Music の埋め込みを貼ってください） -->
+          <p class="reveal"
+            style="font-size:11px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:16px">
+            Watch on YouTube</p>
+          <div class="embed-row">
+            <iframe class="reveal" src="https://www.youtube.com/embed/hodiYUx9p5A" title="五味礼一郎 MV 1"
+              style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block"
+              allow="encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe class="reveal" src="https://www.youtube.com/embed/E0EgcvDEuT8" title="五味礼一郎 MV 2"
+              style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block"
+              allow="encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe class="reveal" src="https://www.youtube.com/embed/UKL-Fc6LNlk" title="五味礼一郎 MV 3"
+              style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block"
+              allow="encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <iframe class="reveal" src="https://www.youtube.com/embed/kZsXOQwFMS4" title="五味礼一郎 MV 4"
+              style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block"
+              allow="encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <!-- ▼ MVカルーセルのスワイプ目印（スマホのみ表示。ドット数はMVの本数に自動で追従します） -->
+          <div class="mv-dots" id="mvDots" aria-hidden="true"></div>
+
+          <!-- ▼ 音楽配信プレーヤー -->
+          <div class="stream-row">
+            <div class="reveal">
+              <p
+                style="font-size:11px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:16px">
+                Listen on Spotify</p>
+              <iframe data-testid="embed-iframe" style="border-radius:12px;display:block"
+                src="https://open.spotify.com/embed/artist/3qNObv1GhF0gPxYvUKMp8r?utm_source=generator" width="100%"
+                height="450" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            </div>
+            <div class="reveal">
+              <p
+                style="font-size:11px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:16px">
+                Listen on Apple Music</p>
+              <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450"
+                style="width:100%;overflow:hidden;border-radius:10px;display:block"
+                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+                src="https://embed.music.apple.com/jp/album/new-order/1449703666" loading="lazy"></iframe>
+            </div>
+          </div>
+
+          <!-- ▼ バンド作品リスト（雑誌インデックス型）
+             1行＝<div class="work-item">。コピーで増やせます。
+             wi-yr＝年号 / wi-title＝タイトル / wi-type＝種別 -->
+          <p style="font-size:11px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin:6px 0 16px">
+            Releases</p>
+          <div class="works-list">
+            <div class="work-item"><span class="wi-yr">2022</span><span class="wi-title">ambivalence</span><span
+                class="wi-type">Mini Album</span></div>
+            <div class="work-item"><span class="wi-yr">2022</span><span class="wi-title">AGE</span><span
+                class="wi-type">Single</span></div>
+            <div class="work-item"><span class="wi-yr">2020</span><span class="wi-title">初恋</span><span
+                class="wi-type">Single</span></div>
+            <div class="work-item"><span class="wi-yr">2020</span><span class="wi-title">Father Time</span><span
+                class="wi-type">Single</span></div>
+            <div class="work-item"><span class="wi-yr">2019</span><span class="wi-title">君はクレイジー</span><span
+                class="wi-type">Single</span></div>
+            <div class="work-item"><span class="wi-yr">2018</span><span class="wi-title">NEW ORDER</span><span
+                class="wi-type">1st Full Album</span></div>
+            <div class="work-item"><span class="wi-yr">2018</span><span class="wi-title">Flag Ship</span><span
+                class="wi-type">Single</span></div>
+          </div>
+
+          <!-- 【グループ2】楽曲提供・編曲（他アーティストへのクライアントワーク） -->
+          <h3 class="group-title reveal" style="margin-top:54px">楽曲提供・編曲<span class="en">Client Works</span></h3>
+          <!-- ▼ 楽曲提供：1アーティスト＝1行（.credit-row）。
+             ・曲を増やすときは <li>曲名<span class="role">役割</span></li> を足します
+             ・新しいアーティストは <div class="credit-row"> 〜 </div> をまるごとコピー
+             ・試聴を載せたい場合は、各行の <div class="credit-embed"> 〜 </div> の中身を入れ替えます。
+               【YouTube動画を埋め込む手順】
+                 1) YouTubeで載せたい動画ページを開く
+                 2) 動画下の「共有」→「埋め込む」をクリック
+                 3) 表示された <iframe …></iframe> のコードをコピー
+                 4) 既存の <iframe src="https://www.youtube.com/embed/…" … ></iframe> の行と差し替える
+                    （style="…" や allow="…" の部分は既存のものに合わせるとデザインが揃います）
+             ・試聴がまだ無いアーティストは <div class="credit-embed"> 〜 </div> ごと省略してOK -->
+          <div class="credit-list">
+            <div class="credit-row">
+              <div class="credit-head">
+                <h3>橋爪もも</h3><span class="label">日本コロムビア</span>
+              </div>
+              <ul class="credit-songs">
+                <li>心が鳴る方へ<span class="role">Arrangement｜テレビ朝日系『クロナダル』エンディングテーマ</span></li>
+                <li>花火<span class="role">Arrangement, Guitar, Bass</span></li>
+                <li>キスをして<span class="role">Arrangement, Guitar</span></li>
+                <li>怒号の雨<span class="role">Arrangement, Guitar</span></li>
+                <li>まともな人間<span class="role">Arrangement, Guitar</span></li>
+              </ul>
+              <div class="credit-embed">
+                <iframe src="https://www.youtube.com/embed/6-9t1-VEZJw" title="橋爪もも「心が鳴る方へ」MV"
+                  style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block"
+                  allow="encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+              </div>
+            </div>
+            <div class="credit-row">
+              <div class="credit-head">
+                <h3>ぷらしゅが</h3>
+              </div>
+              <ul class="credit-songs">
+                <li>恋はなにぬねの？<span class="role">Compose, Arrangement</span></li>
+                <li>映画館行ったらポップコーンは食べる派？<span class="role">Compose, Arrangement</span></li>
+                <li>Sugar Night<span class="role">Compose, Arrangement</span></li>
+              </ul>
+              <div class="credit-embed">
+                <iframe src="https://www.youtube.com/embed/LFMWKJmzxcc" title="ぷらしゅが「恋はなにぬねの？」MV"
+                  style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block"
+                  allow="encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+              </div>
+            </div>
+            <div class="credit-row">
+              <div class="credit-head">
+                <h3>ふれうさ</h3>
+              </div>
+              <ul class="credit-songs">
+                <li>Dream☆Magic<span class="role">Compose, Arrangement</span></li>
+              </ul>
+            </div>
+            <div class="credit-row">
+              <div class="credit-head">
+                <h3>camellia</h3>
+              </div>
+              <ul class="credit-songs">
+                <li>燈日<span class="role">Compose, Arrangement</span></li>
+              </ul>
+            </div>
+            <div class="credit-row">
+              <div class="credit-head">
+                <h3>吉田タロー</h3>
+              </div>
+              <ul class="credit-songs">
+                <li>2012夏、岬にて<span class="role">Arrangement, Mastering</span></li>
+                <li>麦わら帽子<span class="role">Arrangement, Mix, Mastering</span></li>
+                <li>ミニラが来た！<span class="role">Arrangement, Mix, Mastering</span></li>
+              </ul>
+            </div>
+            <div class="credit-row">
+              <div class="credit-head">
+                <h3>冬姫</h3>
+              </div>
+              <ul class="credit-songs">
+                <li>OL<span class="role">Arrangement</span></li>
+                <li>鎧をおろして<span class="role">Arrangement, Guitar</span></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+     【SERVICES／依頼内容と流れ】できること・料金・進め方
+     ・金額は下の「料金表」ブロックで編集できます（各行の ¥◯◯〜 を書き換え）
+     ==================================================================== -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="num">Services</span>
+        <h2>ご依頼内容と流れ</h2>
+        <p class="sub">作詞・作曲・編曲のご依頼を承ります</p>
+      </div>
+      <!-- ▼ できることの紹介カード（3枚）。料金は下の「料金表」にまとめています -->
+      <div class="svc-grid">
+        <div class="svc reveal">
+          <div class="ic">♩</div>
+          <h3>作曲</h3>
+          <p>歌もの・劇伴・コンテンツBGMまで。イメージのヒアリングからメロディ・構成を制作します。</p>
+        </div>
+        <div class="svc reveal">
+          <div class="ic">♪</div>
+          <h3>編曲 / アレンジ</h3>
+          <p>デモや弾き語りを、完成形のサウンドへ。バンドアレンジ、打ち込み、生楽器の手配まで対応。</p>
+        </div>
+        <div class="svc reveal">
+          <div class="ic">♬</div>
+          <h3>トラック / ギター</h3>
+          <p>トラックメイク、ギター録音、サウンドプロデュース。部分的なご依頼も歓迎です。</p>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+         【料金表】礼くんの料金表をもとに作成しています。
+         ・全体を <details class="price-details"> で折りたたんでいます（初期は閉じる）
+           ／ 開きっぱなしにしたい場合は <details ...> に open を足して
+              <details class="price-details" open ...> にすればOK
+         ・1行＝<div class="price-row"><span class="name">項目名</span><span class="amt">¥金額〜</span></div>
+         ・グループ（カテゴリ）の見出しは <h3> 部分。<span class="en"> 〜 </span> は小さな英字ラベル
+         ・項目やグループを増やすときは、既存の1行 / 1ブロックをコピーして金額・名前を変えるだけ
+         ・「フルパッケージ」の行は class="price-row feature" で少し目立つ背景にしています
+         ・税抜／税込の表記を入れたい場合は、下の注記（※）の文章に書き足せます
+         ==================================================================== -->
+      <details class="price-details reveal">
+        <summary><span>料金の目安を見る &nbsp;/&nbsp; PRICE LIST<span style="font-size:11px;font-weight:400;opacity:.8;margin-left:12px;">すべて税抜表記</span></span></summary>
+        <div class="pricing">
+          <div class="price-group">
+            <h3>制作<span class="en">Songwriting · Composing · Arranging</span></h3>
+            <div class="price-row"><span class="name">作詞</span><span class="amt">¥25,000〜</span></div>
+            <div class="price-row"><span class="name">編曲</span><span class="amt">¥50,000〜</span></div>
+            <div class="price-row"><span class="name">作曲・編曲</span><span class="amt">¥100,000〜</span></div>
+            <div class="price-row feature"><span class="name">フルパッケージ制作</span><span class="amt">¥150,000〜</span></div>
+          </div>
+          <div class="price-group">
+            <h3>音源編集・仕上げ<span class="en">Mixing · Mastering · Editing</span></h3>
+            <div class="price-row"><span class="name">ミックス</span><span class="amt">¥20,000〜</span></div>
+            <div class="price-row"><span class="name">マスタリング</span><span class="amt">¥10,000〜</span></div>
+            <div class="price-row"><span class="name">ボーカルピッチ修正</span><span class="amt">¥10,000〜</span></div>
+            <div class="price-row"><span class="name">パラデータ整理</span><span class="amt">¥5,000〜</span></div>
+          </div>
+          <div class="price-group">
+            <h3>REC・サポート<span class="en">Recording · Direction · Support</span></h3>
+            <div class="price-row"><span class="name">ギターREC</span><span class="amt">¥15,000〜</span></div>
+            <div class="price-row"><span class="name">ベースREC</span><span class="amt">¥15,000〜</span></div>
+            <div class="price-row"><span class="name">ドラムREC</span><span class="amt">¥20,000〜</span></div>
+            <div class="price-row"><span class="name">ボーカルRECディレクション</span><span class="amt">¥20,000〜</span></div>
+            <div class="price-row"><span class="name">コンペ用仮歌制作</span><span class="amt">¥10,000〜</span></div>
+          </div>
+        </div>
+      </details>
+      <div class="flow">
+        <div class="step reveal">
+          <h4>ご相談</h4>
+          <p>イメージ・納期・ご予算をお聞かせください。</p>
+        </div>
+        <div class="step reveal">
+          <h4>お見積り</h4>
+          <p>内容を整理し、料金とスケジュールをご提案。</p>
+        </div>
+        <div class="step reveal">
+          <h4>制作</h4>
+          <p>デモ確認を挟みながら、丁寧に仕上げます。</p>
+        </div>
+        <div class="step reveal">
+          <h4>納品</h4>
+          <p>音源データを納品。修正範囲も事前にご案内。</p>
+        </div>
+      </div>
+      <div class="note reveal"
+        style="margin-top:30px;font-size:12.5px;color:var(--muted);background:rgba(181,98,58,.08);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 6px 6px 0;line-height:1.9">
+        <p style="margin:0 0 10px">※ 上記は最低料金の目安です。<br>ご予算や制作内容に合わせて、できる限り無理のない形をご提案いたします。<br>料金は、楽曲の内容・尺・納期・修正回数・商用利用範囲などにより変動します。<br>正式なお見積もりは、ご依頼内容を確認したうえでご案内いたします。</p>
+        <p style="margin:0 0 6px">・ 作詞のみ、作曲のみ、編曲のみ、ミックスのみなど、部分的なご依頼も対応可能です。<br>「ここだけ手伝ってほしい」「まずはデモだけ作りたい」といったご相談も歓迎しています。</p>
+        <p style="margin:0 0 6px">・ フルパッケージ制作は、作詞・作曲・編曲を中心に、配信・公開に向けた音源制作を一括でサポートするプランです。<br>ミックス・マスタリングについても、楽曲の方向性やご予算に合わせてご相談いただけます。</p>
+        <p style="margin:0 0 6px">・ ミックスは、トラック数・編集量・ご希望の仕上がりに応じて対応いたします。<br>より本格的な仕上がりをご希望の場合は、ご予算に合わせて外部エンジニアのご紹介・手配も可能です。</p>
+        <p style="margin:0 0 6px">・ ボーカルピッチ修正は、メインボーカル1本・軽微な修正を想定した最低料金です。<br>ハモリ、ダブル、複数トラック、タイミング修正込みの場合は別途お見積もりとなります。</p>
+        <p style="margin:0 0 6px">・ ベースREC・ドラムRECは、ご希望の内容に合わせてこちらで手配・対応いたします。<br>必要に応じて、スタジオ・エンジニア・交通費などの実費が発生する場合があります。その際は、事前にご相談のうえご案内いたします。</p>
+        <p style="margin:0 0 10px">・ ボーカルRECは、ご予算に合わせてスタジオ・エンジニア等の手配も可能です。<br>手配サポート自体の追加料金はいただきません。スタジオ代、エンジニア代、交通費などの実費が発生する場合は、事前にご相談のうえご案内いたします。</p>
+        <p style="margin:0">制作の規模がまだ決まっていない段階でも大丈夫です。<br>ご予算・目的・完成イメージに合わせて、一緒に最適な形を考えます。<br>ご依頼・ご相談はDMまたはお問い合わせフォームよりお気軽にご連絡ください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+     【CONTACT／お問い合わせ】メールボタンとSNSリンク
+     ・メールの宛先は下の「メールで相談する」ボタン（<a id="mailBtn" href="mailto:...">）の href を変更
+     ・SNSは下の <a href="リンク先"> の href を変えます
+     ==================================================================== -->
+  <section id="contact">
+    <div class="wrap">
+      <h2 class="reveal">お問い合わせ</h2>
+      <p class="lead reveal">作曲・編曲のご依頼、ご相談はお気軽にどうぞ。<br>内容を確認のうえ、折り返しご連絡いたします。</p>
+      <!-- ▼ メールの宛先：href="mailto:◯◯◯?subject=◯◯◯" の「your-address@example.com」を本物のアドレスに書き換えてください。件名（subject= のうしろ）はそのままでOKです。 -->
+      <a class="btn reveal" id="mailBtn" href="mailto:gomi.wds@gmail.com?subject=作曲・編曲のご依頼／ご相談" target="_blank"
+        rel="noopener">✉ &nbsp;メールで相談する</a>
+      <!-- ▼ SNSリンク：href="..." の中を各SNSのURLに変えます。アイコンはSVGで直接埋め込んでいます（画像ファイル不要） -->
+      <div class="socials reveal">
+        <!-- X（旧Twitter） -->
+        <a href="https://x.com/reitter_jp" target="_blank" rel="noopener" aria-label="X (五味礼一郎)" title="X (五味礼一郎)">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/rei.wds/" target="_blank" rel="noopener" aria-label="Instagram（五味礼一郎）"
+          title="Instagram（五味礼一郎）">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+          </svg>
+        </a>
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@welldonesabotage01" target="_blank" rel="noopener"
+          aria-label="YouTube（WELL DONE SABOTAGE）" title="YouTube（WELL DONE SABOTAGE）">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▼ ページ下部のクレジット -->
+  <footer>© <span id="yr">2026</span> Reiichiro Gomi</footer>
+
+  <!-- ====================================================================
+     ここから下は「動き」と「メール宛先」の設定です。
+     変えるのは基本「メール宛先」だけでOK（上の方にコメントあり）。
+     ==================================================================== -->
+  <!-- アニメーション用の部品を読み込み（インターネットに繋がっている必要があります。中身はそのままでOKです） -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    (function () {
+      "use strict";
+      var doc = document;
+
+      /* ---- always-on basics (work even without GSAP) ---- */
+      doc.getElementById('yr').textContent = new Date().getFullYear();
+
+      var header = doc.getElementById('siteHeader');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 60) { header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); }
+      });
+
+      var menuBtn = doc.getElementById('menuBtn');
+      var navMain = doc.getElementById('navMain');
+      function closeMenu() {
+        navMain.classList.remove('open');
+        menuBtn.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        doc.body.style.overflow = '';
+      }
+      menuBtn.addEventListener('click', function () {
+        var open = navMain.classList.toggle('open');
+        menuBtn.classList.toggle('open', open);
+        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        doc.body.style.overflow = open ? 'hidden' : '';
+      });
+      doc.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && navMain.classList.contains('open')) { closeMenu(); }
+      });
+
+      doc.querySelectorAll('[data-target]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          var t = doc.getElementById(this.getAttribute('data-target'));
+          if (t) {
+            e.preventDefault();
+            t.scrollIntoView({ behavior: 'smooth' });
+          }
+          closeMenu();
+        });
+      });
+
+      /* ▼ MVカルーセルのスワイプ目印ドット（スマホのみ表示。ドット数はMVの本数に自動追従） */
+      try {
+        var mvRow = doc.querySelector('.embed-row');
+        var mvDots = doc.getElementById('mvDots');
+        if (mvRow && mvDots) {
+          var mvItems = mvRow.querySelectorAll('iframe');
+          if (mvItems.length > 1) {
+            for (var mi = 0; mi < mvItems.length; mi++) {
+              (function (idx) {
+                var dot = doc.createElement('span');
+                dot.className = 'mv-dot' + (idx === 0 ? ' active' : '');
+                dot.addEventListener('click', function () {
+                  mvItems[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                });
+                mvDots.appendChild(dot);
+              })(mi);
+            }
+            var mvDotEls = mvDots.querySelectorAll('.mv-dot');
+            var mvTick;
+            mvRow.addEventListener('scroll', function () {
+              if (mvTick) return;
+              mvTick = requestAnimationFrame(function () {
+                mvTick = null;
+                var step = mvItems[0].getBoundingClientRect().width + 14;
+                var idx = step ? Math.round(mvRow.scrollLeft / step) : 0;
+                if (idx < 0) idx = 0;
+                if (idx > mvDotEls.length - 1) idx = mvDotEls.length - 1;
+                for (var k = 0; k < mvDotEls.length; k++) { mvDotEls[k].classList.toggle('active', k === idx); }
+              });
+            }, { passive: true });
+          }
+        }
+      } catch (e) { }
+
+      /* メールボタンは <a href="mailto:..."> として本文側に書いてあります（JS不要で動く設計）。
+         宛先を変えるときは、本文の「メールで相談する」ボタンのコメント直上の <a> の href を編集してください。 */
+
+      /* ---- animation layer (graceful fallback) ---- */
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!window.gsap || reduce) {
+        return; /* content already visible by default; skip animation */
+      }
+
+      try {
+        gsap.registerPlugin(ScrollTrigger);
+
+        /* content is visible by default -> establish hidden states now that GSAP is ready */
+        gsap.set('.reveal', { opacity: 0, y: 30, filter: 'blur(7px)' });
+        gsap.set('.h-anim', { opacity: 0, y: 26, filter: 'blur(9px)' });
+
+        /* ヒーローアニメ：上から順にフェードイン */
+        var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        tl.to('.hero h1', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.3 }, .15)
+          .to('.hero .divider', { opacity: 1, y: 0, filter: 'blur(0px)', duration: .8 }, '-=.6')
+          .to('.hero .tag', { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.0 }, '-=.5')
+          .to('.roles .h-anim', { opacity: 1, y: 0, filter: 'blur(0px)', duration: .7, stagger: .09 }, '-=.7');
+
+        /* 呼吸するグロー */
+        gsap.to('#heroGlow', { scale: 1.16, opacity: .72, duration: 6, ease: 'sine.inOut', yoyo: true, repeat: -1, transformOrigin: 'center' });
+
+        /* ヒーロー視差：スクロールでコンテンツがゆっくり上がる */
+        gsap.to('.hero .wrap', { yPercent: 16, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+        gsap.to('#heroGlow', { yPercent: 30, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+        /* ▼ バンド作品リスト：左からスライドイン（エディトリアルな流れを表現） */
+        gsap.set('.work-item', { opacity: 0, x: -28 });
+        ScrollTrigger.batch('.work-item', {
+          start: 'top 90%',
+          onEnter: function (els) {
+            gsap.to(els, { opacity: 1, x: 0, duration: .65, ease: 'power3.out', stagger: .06, overwrite: true });
+          }
+        });
+
+        /* ▼ 楽曲提供クレジット行：右からスライドイン */
+        gsap.set('.credit-row', { opacity: 0, x: 36, filter: 'blur(4px)' });
+        ScrollTrigger.batch('.credit-row', {
+          start: 'top 88%',
+          onEnter: function (els) {
+            gsap.to(els, { opacity: 1, x: 0, filter: 'blur(0px)', duration: .85, ease: 'power3.out', stagger: .1, overwrite: true });
+          }
+        });
+
+        /* 各セクションはスクロールで入ってきたタイミングでふわっと出ます */
+        ScrollTrigger.batch('.reveal', {
+          start: 'top 86%',
+          onEnter: function (els) {
+            gsap.to(els, { opacity: 1, y: 0, filter: 'blur(0px)', duration: .95, ease: 'power3.out', stagger: .12, overwrite: true });
+          }
+        });
+
+        ScrollTrigger.refresh();
+      } catch (err) {
+        /* 万一うまく動かなくても、全部表示するようにしておく */
+        doc.querySelectorAll('.reveal,.h-anim,.work-item,.credit-row').forEach(function (el) {
+          el.style.opacity = '1'; el.style.transform = 'none'; el.style.filter = 'none';
+        });
+      }
+    })();
+  </script>
+</body>
+
+</html>
