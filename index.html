@@ -7,19 +7,26 @@
   <!-- ▼ ブラウザのタブ・ブックマーク・検索結果に出るタイトル -->
   <title>Reiichiro Gomi | 五味礼一郎</title>
   <!-- ▼ 検索結果やSNSでシェアされたときに出る説明文 -->
-  <meta name="description" content="五味礼一郎（Reiichiro Gomi）作曲・編曲家。WELL DONE SABOTAGE Vo.Gt。作曲・アレンジのご依頼を承ります。">
+  <meta name="description" content="五味礼一郎（Reiichiro Gomi）作曲・編曲家。WELL DONE SABOTAGE Vo.Gt。歌もの／劇伴の作曲・編曲・楽曲提供のご依頼を承ります。">
+  <!-- ▼ スマホでサイトを開いたときの画面上部バー（アドレスバー）の色。サイト背景と揃えて一体感を出す -->
+  <meta name="theme-color" content="#16130f">
   <!-- ▼ SNS（X / Instagram / LINE 等）にURLを貼ったときに出る、サムネ＋タイトル＋説明文の設定。
-       本番URLが決まったら、og:image を「完全なアドレス」（https:// から始まるアドレス。
-       例: https://reiichirogomi.netlify.app/images/rei.jpg）に書き換えると、より確実に表示されます。 -->
+       og:image は GitHub Pages の本番URLの絶対アドレスにしてあります（SNS側で確実に読み込めるように）。
+       公開先ドメインが変わった場合は https://reiichirogomi.github.io/ の部分を書き換えてください。 -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="五味礼一郎 | Composer & Arranger">
-  <meta property="og:description" content="五味礼一郎（Reiichiro Gomi）作曲・編曲家。WELL DONE SABOTAGE Vo.Gt。作曲・アレンジのご依頼を承ります。">
-  <meta property="og:image" content="images/rei.jpg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:description"
+    content="五味礼一郎（Reiichiro Gomi）作曲・編曲家。WELL DONE SABOTAGE Vo.Gt。歌もの／劇伴の作曲・編曲・楽曲提供のご依頼を承ります。">
+  <meta property="og:image" content="https://reiichirogomi.github.io/images/rei.jpg">
+  <meta property="og:url" content="https://reiichirogomi.github.io/">
+  <!-- ▼ X (旧Twitter) でURLを貼ったときに「横長の大きなカード」で出る指定。
+       より目立ち、クリック率が上がります。横長カードでは縦長写真は左右がクロップされます。
+       将来、横長 (1200×630推奨) の OGP 用画像を用意したら og:image のURLを差し替えてください。 -->
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <!-- ▼ 構造化データ（Googleなどの検索結果で、名前・肩書き・SNSなどを綺麗に表示してもらうための情報）。
-       本番URLが決まったら、image と url を「完全なアドレス」（https:// から始まるアドレス。
-       例: https://reiichirogomi.netlify.app/images/rei.jpg）に書き換えると、より確実です。
+       image と url は GitHub Pages の本番URLの絶対アドレスにしてあります。
+       公開先ドメインが変わった場合は https://reiichirogomi.github.io/ の部分を書き換えてください。
        ※ この { } の中は決まった書き方（JSONという形式）です。文字を変えるのはOKですが、
          カンマ「,」やクォート「"」は消さないでください（消すと表示が壊れます）。 -->
   <script type="application/ld+json">
@@ -30,7 +37,8 @@
   "alternateName": "Reiichiro Gomi",
   "jobTitle": "作曲家・編曲家",
   "description": "作曲・編曲家。WELL DONE SABOTAGE Vo.Gt。",
-  "image": "images/rei.jpg",
+  "url": "https://reiichirogomi.github.io/",
+  "image": "https://reiichirogomi.github.io/images/rei.jpg",
   "sameAs": [
     "https://x.com/reitter_jp",
     "https://www.instagram.com/rei.wds/",
@@ -177,7 +185,7 @@
     nav.main a {
       font-size: 13px;
       letter-spacing: .12em;
-      color: rgba(255, 255, 255, .82);
+      color: rgba(255, 255, 255, .92);
       transition: color .25s ease
     }
 
@@ -221,7 +229,7 @@
       display: flex;
       align-items: center;
       background:
-        linear-gradient(160deg, rgba(22, 19, 15, .90) 0%, rgba(42, 33, 27, .78) 100%),
+        linear-gradient(160deg, rgba(22, 19, 15, .70) 0%, rgba(42, 33, 27, .55) 100%),
         url('images/rei.jpg') center 18% / cover no-repeat;
       color: #f3ece2;
       overflow: hidden;
@@ -431,7 +439,8 @@
 
     .about-heading {
       font-family: var(--font-display);
-      font-size: 52px;
+      /* ▼ 画面幅に応じて 36〜52px の範囲で自動調整（他の見出しと揃える）。スマホで窮屈にならない */
+      font-size: clamp(36px, 8vw, 52px);
       font-weight: 400;
       letter-spacing: .08em;
       line-height: 1;
@@ -493,7 +502,7 @@
     }
 
     .about-body p {
-      font-size: 14px;
+      font-size: 15.5px;
       line-height: 2.1;
       margin-bottom: 24px;
       color: var(--ink);
@@ -514,7 +523,7 @@
     }
 
     .about-works-list li {
-      font-size: 12.5px;
+      font-size: 13.5px;
       letter-spacing: .1em;
       color: var(--muted);
       padding: 6px 0;
@@ -701,7 +710,7 @@
 
     .work-item .wi-type {
       font-size: 10.5px;
-      color: rgba(243, 236, 226, .32);
+      color: rgba(243, 236, 226, .50);
       letter-spacing: .22em;
       text-transform: uppercase;
       flex: none;
@@ -822,6 +831,7 @@
     }
 
     @media(max-width:900px) {
+
       /* credit セクション モバイル修正 */
       #works {
         overflow-x: hidden;
@@ -977,6 +987,18 @@
     .flow .step p {
       font-size: 12.5px;
       color: var(--muted)
+    }
+
+    /* ▼ ステップ同士を細い横線でつないで「順番」を一目で伝える。最後のステップ右側には線を引かない。
+       スマホ（2×2レイアウト）では線が縦横に飛んで違和感が出るので、後段の @media で消しています */
+    .flow .step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 18px;
+      right: -9px;
+      width: 18px;
+      height: 1px;
+      background: var(--line);
     }
 
     /* ---------- Price list ---------- */
@@ -1145,6 +1167,33 @@
     .btn:hover {
       transform: translateY(-3px);
       background: #c56e44
+    }
+
+    /* ▼ ボタン2個並び（メール＋Instagram DM）。狭い画面では自動で縦並びになります */
+    .btn-row {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* ▼ 控えめなサブボタン（枠線のみ）。メインの「メールで相談」を引き立てる脇役デザイン */
+    .btn-ghost {
+      background: transparent;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(181, 98, 58, .08);
+      color: var(--accent);
+    }
+
+    .btn-ghost svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
     }
 
     .socials {
@@ -1320,6 +1369,11 @@
         gap: 30px 0
       }
 
+      /* スマホは2×2レイアウト。ステップ間の横線は不要（縦横にバラついて違和感が出る） */
+      .flow .step:not(:last-child)::after {
+        display: none;
+      }
+
       /* スマホではwork-itemの種別文字を省略 */
       .work-item .wi-type {
         display: none
@@ -1397,7 +1451,8 @@
       <p class="tag h-anim">Composer &nbsp;/&nbsp; Arranger &nbsp;/&nbsp; Guitarist &nbsp;/&nbsp; Vocalist</p>
       <!-- ▼ 対応タグ（日本語）。<span>〜</span> を増やす／減らすと個数が変わります -->
       <div class="roles">
-        <span class="h-anim">作曲</span><span class="h-anim">作詞</span><span class="h-anim">編曲</span><span class="h-anim">ギター</span><span class="h-anim">ミックス</span>
+        <span class="h-anim">作曲</span><span class="h-anim">作詞</span><span class="h-anim">編曲</span><span
+          class="h-anim">ギター</span><span class="h-anim">ミックス</span>
       </div>
     </div>
     <div class="scrollcue">SCROLL</div>
@@ -1449,7 +1504,9 @@
           <p class="about-role reveal">作曲家／編曲家／ボーカリスト／ギタリスト</p>
           <!-- ▼ プロフィール本文。<p>〜</p> を増減して自由に編集できます -->
           <p class="reveal">東京を拠点に、歌モノを軸とした楽曲制作を行う。ポップス、ロック、バラード、バンドサウンドを中心に、打ち込みやエレクトロ要素を取り入れたアレンジまで対応。</p>
-          <p class="reveal">ロックバンド「WELL DONE SABOTAGE」Vo/Gt。<br>作曲家事務所 <a href="http://www.tscorp.jp/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px">T's Corporation</a> 所属。</p>
+          <p class="reveal">ロックバンド「WELL DONE SABOTAGE」Vo/Gt。<br>作曲家事務所 <a href="http://www.tscorp.jp/" target="_blank"
+              rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px">T's
+              Corporation</a> 所属。</p>
           <p class="reveal">歌に宿る感情、アーティストごとの温度、楽曲が持つ意思を大切に、メロディ・アレンジ・サウンドの面から一曲の魅力を引き出す。</p>
           <!-- ▼ WORKSラベルと項目一覧。<li> を増減して編集できます -->
           <p class="about-works-label reveal">WORKS</p>
@@ -1684,7 +1741,8 @@
          ・税抜／税込の表記を入れたい場合は、下の注記（※）の文章に書き足せます
          ==================================================================== -->
       <details class="price-details reveal">
-        <summary><span>料金の目安を見る &nbsp;/&nbsp; PRICE LIST<span style="font-size:11px;font-weight:400;opacity:.8;margin-left:12px;">すべて税抜表記</span></span></summary>
+        <summary><span>料金の目安を見る &nbsp;/&nbsp; PRICE LIST<span
+              style="font-size:11px;font-weight:400;opacity:.8;margin-left:12px;">すべて税抜表記</span></span></summary>
         <div class="pricing">
           <div class="price-group">
             <h3>制作<span class="en">Songwriting · Composing · Arranging</span></h3>
@@ -1730,14 +1788,25 @@
       </div>
       <div class="note reveal"
         style="margin-top:30px;font-size:12.5px;color:var(--muted);background:rgba(181,98,58,.08);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 6px 6px 0;line-height:1.9">
-        <p style="margin:0 0 10px">※ 上記は最低料金の目安です。<br>ご予算や制作内容に合わせて、できる限り無理のない形をご提案いたします。<br>料金は、楽曲の内容・尺・納期・修正回数・商用利用範囲などにより変動します。<br>正式なお見積もりは、ご依頼内容を確認したうえでご案内いたします。</p>
-        <p style="margin:0 0 6px">・ 作詞のみ、作曲のみ、編曲のみ、ミックスのみなど、部分的なご依頼も対応可能です。<br>「ここだけ手伝ってほしい」「まずはデモだけ作りたい」といったご相談も歓迎しています。</p>
-        <p style="margin:0 0 6px">・ フルパッケージ制作は、作詞・作曲・編曲を中心に、配信・公開に向けた音源制作を一括でサポートするプランです。<br>ミックス・マスタリングについても、楽曲の方向性やご予算に合わせてご相談いただけます。</p>
-        <p style="margin:0 0 6px">・ ミックスは、トラック数・編集量・ご希望の仕上がりに応じて対応いたします。<br>より本格的な仕上がりをご希望の場合は、ご予算に合わせて外部エンジニアのご紹介・手配も可能です。</p>
-        <p style="margin:0 0 6px">・ ボーカルピッチ修正は、メインボーカル1本・軽微な修正を想定した最低料金です。<br>ハモリ、ダブル、複数トラック、タイミング修正込みの場合は別途お見積もりとなります。</p>
-        <p style="margin:0 0 6px">・ ベースREC・ドラムRECは、ご希望の内容に合わせてこちらで手配・対応いたします。<br>必要に応じて、スタジオ・エンジニア・交通費などの実費が発生する場合があります。その際は、事前にご相談のうえご案内いたします。</p>
-        <p style="margin:0 0 10px">・ ボーカルRECは、ご予算に合わせてスタジオ・エンジニア等の手配も可能です。<br>手配サポート自体の追加料金はいただきません。スタジオ代、エンジニア代、交通費などの実費が発生する場合は、事前にご相談のうえご案内いたします。</p>
-        <p style="margin:0">制作の規模がまだ決まっていない段階でも大丈夫です。<br>ご予算・目的・完成イメージに合わせて、一緒に最適な形を考えます。<br>ご依頼・ご相談はDMまたはお問い合わせフォームよりお気軽にご連絡ください。</p>
+        <p style="margin:0 0 10px">※
+          上記は最低料金の目安です。<br>ご予算や制作内容に合わせて、できる限り無理のない形をご提案いたします。<br>料金は、楽曲の内容・尺・納期・修正回数・商用利用範囲などにより変動します。<br>正式なお見積もりは、ご依頼内容を確認したうえでご案内いたします。
+        </p>
+        <p style="margin:0 0 6px">・
+          作詞のみ、作曲のみ、編曲のみ、ミックスのみなど、部分的なご依頼も対応可能です。<br>「ここだけ手伝ってほしい」「まずはデモだけ作りたい」といったご相談も歓迎しています。</p>
+        <p style="margin:0 0 6px">・
+          フルパッケージ制作は、作詞・作曲・編曲を中心に、配信・公開に向けた音源制作を一括でサポートするプランです。<br>ミックス・マスタリングについても、楽曲の方向性やご予算に合わせてご相談いただけます。</p>
+        <p style="margin:0 0 6px">・
+          ミックスは、トラック数・編集量・ご希望の仕上がりに応じて対応いたします。<br>より本格的な仕上がりをご希望の場合は、ご予算に合わせて外部エンジニアのご紹介・手配も可能です。</p>
+        <p style="margin:0 0 6px">・ ボーカルピッチ修正は、メインボーカル1本・軽微な修正を想定した最低料金です。<br>ハモリ、ダブル、複数トラック、タイミング修正込みの場合は別途お見積もりとなります。
+        </p>
+        <p style="margin:0 0 6px">・
+          ベースREC・ドラムRECは、ご希望の内容に合わせてこちらで手配・対応いたします。<br>必要に応じて、スタジオ・エンジニア・交通費などの実費が発生する場合があります。その際は、事前にご相談のうえご案内いたします。
+        </p>
+        <p style="margin:0 0 10px">・
+          ボーカルRECは、ご予算に合わせてスタジオ・エンジニア等の手配も可能です。<br>手配サポート自体の追加料金はいただきません。スタジオ代、エンジニア代、交通費などの実費が発生する場合は、事前にご相談のうえご案内いたします。
+        </p>
+        <p style="margin:0">
+          制作の規模がまだ決まっていない段階でも大丈夫です。<br>ご予算・目的・完成イメージに合わせて、一緒に最適な形を考えます。<br>ご依頼・ご相談はDMまたはお問い合わせフォームよりお気軽にご連絡ください。</p>
       </div>
     </div>
   </section>
@@ -1751,9 +1820,21 @@
     <div class="wrap">
       <h2 class="reveal">お問い合わせ</h2>
       <p class="lead reveal">作曲・編曲のご依頼、ご相談はお気軽にどうぞ。<br>内容を確認のうえ、折り返しご連絡いたします。</p>
-      <!-- ▼ メールの宛先：href="mailto:◯◯◯?subject=◯◯◯" の「your-address@example.com」を本物のアドレスに書き換えてください。件名（subject= のうしろ）はそのままでOKです。 -->
-      <a class="btn reveal" id="mailBtn" href="mailto:gomi.wds@gmail.com?subject=作曲・編曲のご依頼／ご相談" target="_blank"
-        rel="noopener">✉ &nbsp;メールで相談する</a>
+      <!-- ▼ お問い合わせボタン（2つ並び）。
+           ・1つ目「メールで相談する」：宛先を変えるときは href="mailto:◯◯◯?subject=◯◯◯" の「gomi.wds@gmail.com」を書き換え。件名（subject= のうしろ）はそのままでOK。
+           ・2つ目「Instagram DMで相談」：Instagramユーザー名を変えるときは https://ig.me/m/rei.wds の「rei.wds」を書き換え。アプリが入っていれば直接DM画面、入っていなければプロフィールに飛びます。 -->
+      <div class="btn-row reveal">
+        <a class="btn" id="mailBtn" href="mailto:gomi.wds@gmail.com?subject=作曲・編曲のご依頼／ご相談" target="_blank"
+          rel="noopener">✉ &nbsp;メールで相談する</a>
+        <a class="btn btn-ghost" href="https://ig.me/m/rei.wds" target="_blank" rel="noopener"
+          aria-label="Instagram DMで相談する">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+          </svg>
+          Instagram DMで相談
+        </a>
+      </div>
       <!-- ▼ SNSリンク：href="..." の中を各SNSのURLに変えます。アイコンはSVGで直接埋め込んでいます（画像ファイル不要） -->
       <div class="socials reveal">
         <!-- X（旧Twitter） -->

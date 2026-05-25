@@ -1,6 +1,7 @@
 # Claude Code のローカル専用メモ（リポジトリには含めない）
 CLAUDE.md
 .claude/
+.playwright-mcp/
 
 # OS が自動生成するシステムファイル
 .DS_Store
