@@ -592,12 +592,24 @@
       margin-top: 8px
     }
 
+    /* ▼ MV動画の並べ方（PC）。1本目を「Featured（大きく）」上にフル幅、残り3本を下に小さく3列。
+       雑誌の「特集記事＋関連記事」レイアウトのイメージ。
+       並び順は HTML 内の <iframe> の登場順（1本目→Featured、2-4本目→小サムネ）。
+       スマホ（max-width:900px）では下の @media で横スクロール（カルーセル）に切り替えています */
     .embed-row {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-areas:
+        "feat feat feat"
+        "s1 s2 s3";
+      gap: 18px;
       margin-bottom: 46px
     }
+
+    .embed-row > iframe:nth-child(1) { grid-area: feat; }
+    .embed-row > iframe:nth-child(2) { grid-area: s1; }
+    .embed-row > iframe:nth-child(3) { grid-area: s2; }
+    .embed-row > iframe:nth-child(4) { grid-area: s3; }
 
     .embed {
       aspect-ratio: 16/9;
@@ -898,11 +910,17 @@
         margin-bottom: 0
       }
 
+      /* ▼ 動画をスクロールに合わせて画面上端あたりに追従させる（sticky）。
+         曲リストが縦に長くても、右側の動画が画面外に出ず常に見える。
+         `top: 100px` はヘッダーの高さぶんの余裕。`align-self: start` は sticky を効かせるための定石指定 */
       .credit-row:has(.credit-embed) .credit-embed {
         grid-column: 2;
         grid-row: 2;
         margin-top: 0;
-        max-width: none
+        max-width: none;
+        position: sticky;
+        top: 100px;
+        align-self: start;
       }
     }
 
@@ -1229,13 +1247,33 @@
       color: #fff
     }
 
+    /* ▼ ページ一番下のフッター。faviconを小さく表示し、最終更新日も併記して
+       「運営されているサイト」感を出す。中央寄せ＋折返し可能なフレックス */
     footer {
       background: var(--hero-1);
       color: rgba(243, 236, 226, .38);
       text-align: center;
       padding: 40px 20px;
       font-size: 12px;
-      letter-spacing: .12em
+      letter-spacing: .12em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap
+    }
+
+    .footer-logo {
+      width: 20px;
+      height: 20px;
+      opacity: .75;
+      display: block
+    }
+
+    .footer-updated {
+      color: rgba(243, 236, 226, .25);
+      font-size: 11px;
+      letter-spacing: .08em
     }
 
     /* ---------- Mobile ---------- */
@@ -1550,16 +1588,18 @@
             style="font-size:11px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:16px">
             Watch on YouTube</p>
           <div class="embed-row">
-            <iframe class="reveal" src="https://www.youtube.com/embed/hodiYUx9p5A" title="五味礼一郎 MV 1"
+            <!-- ▼ 1本目＝Featured（PCで大きく表示される） -->
+            <iframe class="reveal" src="https://www.youtube.com/embed/UKL-Fc6LNlk" title="WELL DONE SABOTAGE「生きていたいの」"
               style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block"
               allow="encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            <iframe class="reveal" src="https://www.youtube.com/embed/E0EgcvDEuT8" title="五味礼一郎 MV 2"
+            <!-- ▼ 2〜4本目＝小サムネ（PCで下に3列で並ぶ） -->
+            <iframe class="reveal" src="https://www.youtube.com/embed/GTgNcKO6haQ" title="WELL DONE SABOTAGE「AGE」"
               style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block"
               allow="encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            <iframe class="reveal" src="https://www.youtube.com/embed/UKL-Fc6LNlk" title="五味礼一郎 MV 3"
+            <iframe class="reveal" src="https://www.youtube.com/embed/hodiYUx9p5A" title="WELL DONE SABOTAGE「初恋」"
               style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block"
               allow="encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            <iframe class="reveal" src="https://www.youtube.com/embed/kZsXOQwFMS4" title="五味礼一郎 MV 4"
+            <iframe class="reveal" src="https://www.youtube.com/embed/uQcITm7wujI" title="WELL DONE SABOTAGE「バラノハナ」"
               style="width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block"
               allow="encrypted-media;picture-in-picture" allowfullscreen loading="lazy"></iframe>
           </div>
@@ -1864,8 +1904,13 @@
     </div>
   </section>
 
-  <!-- ▼ ページ下部のクレジット -->
-  <footer>© <span id="yr">2026</span> Reiichiro Gomi</footer>
+  <!-- ▼ ページ下部のクレジット。faviconを小さく表示＋最終更新日（Last updated）を併記。
+       Last updated は下の JS が `document.lastModified`（HTMLファイルの最終更新日時）から自動で書き換えます -->
+  <footer>
+    <img src="favicon.svg" alt="" class="footer-logo" aria-hidden="true">
+    <span>© <span id="yr">2026</span> Reiichiro Gomi</span>
+    <span class="footer-updated">Last updated: <span id="lastUpdated">2026-05-25</span></span>
+  </footer>
 
   <!-- ====================================================================
      ここから下は「動き」と「メール宛先」の設定です。
@@ -1881,6 +1926,20 @@
 
       /* ---- always-on basics (work even without GSAP) ---- */
       doc.getElementById('yr').textContent = new Date().getFullYear();
+
+      /* ▼ フッターの「Last updated」を自動で更新（HTMLファイルの最終更新日時を表示）。
+         JSが動かない環境でもフォールバックの日付が見えるので問題なし */
+      try {
+        var lm = new Date(doc.lastModified);
+        if (!isNaN(lm.getTime())) {
+          var lastUpdated = doc.getElementById('lastUpdated');
+          if (lastUpdated) {
+            lastUpdated.textContent = lm.getFullYear() + '-' +
+              String(lm.getMonth() + 1).padStart(2, '0') + '-' +
+              String(lm.getDate()).padStart(2, '0');
+          }
+        }
+      } catch (e) { /* フォールバック日付のまま */ }
 
       var header = doc.getElementById('siteHeader');
       window.addEventListener('scroll', function () {
