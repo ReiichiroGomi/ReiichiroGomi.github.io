@@ -683,6 +683,8 @@
     /* ▼ バンド作品を「雑誌インデックス型リスト」に変更
        年号（Playfair italic）＋曲名（明朝体）＋種別（小キャプス）の横並び */
     .works-list {
+      list-style: none;
+      padding: 0;
       border-top: 1px solid rgba(243, 236, 226, .14);
       margin-bottom: 0
     }
@@ -1630,26 +1632,29 @@
           </div>
 
           <!-- ▼ バンド作品リスト（雑誌インデックス型）
-             1行＝<div class="work-item">。コピーで増やせます。
-             wi-yr＝年号 / wi-title＝タイトル / wi-type＝種別 -->
+             1行＝<li class="work-item">。コピーで増やせます。
+             wi-yr＝年号 / wi-title＝タイトル / wi-type＝種別
+             ※ <ol> でリスト構造にしているのは、検索エンジンや音声読み上げソフトに
+                「ここは作品一覧」と認識してもらうため。見た目は <div> の時と変わりません -->
+
           <p style="font-size:11px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin:6px 0 16px">
             Releases</p>
-          <div class="works-list">
-            <div class="work-item"><span class="wi-yr">2022</span><span class="wi-title">ambivalence</span><span
-                class="wi-type">Mini Album</span></div>
-            <div class="work-item"><span class="wi-yr">2022</span><span class="wi-title">AGE</span><span
-                class="wi-type">Single</span></div>
-            <div class="work-item"><span class="wi-yr">2020</span><span class="wi-title">初恋</span><span
-                class="wi-type">Single</span></div>
-            <div class="work-item"><span class="wi-yr">2020</span><span class="wi-title">Father Time</span><span
-                class="wi-type">Single</span></div>
-            <div class="work-item"><span class="wi-yr">2019</span><span class="wi-title">君はクレイジー</span><span
-                class="wi-type">Single</span></div>
-            <div class="work-item"><span class="wi-yr">2018</span><span class="wi-title">NEW ORDER</span><span
-                class="wi-type">1st Full Album</span></div>
-            <div class="work-item"><span class="wi-yr">2018</span><span class="wi-title">Flag Ship</span><span
-                class="wi-type">Single</span></div>
-          </div>
+          <ol class="works-list">
+            <li class="work-item"><span class="wi-yr">2022</span><span class="wi-title">ambivalence</span><span
+                class="wi-type">Mini Album</span></li>
+            <li class="work-item"><span class="wi-yr">2022</span><span class="wi-title">AGE</span><span
+                class="wi-type">Single</span></li>
+            <li class="work-item"><span class="wi-yr">2020</span><span class="wi-title">初恋</span><span
+                class="wi-type">Single</span></li>
+            <li class="work-item"><span class="wi-yr">2020</span><span class="wi-title">Father Time</span><span
+                class="wi-type">Single</span></li>
+            <li class="work-item"><span class="wi-yr">2019</span><span class="wi-title">君はクレイジー</span><span
+                class="wi-type">Single</span></li>
+            <li class="work-item"><span class="wi-yr">2018</span><span class="wi-title">NEW ORDER</span><span
+                class="wi-type">1st Full Album</span></li>
+            <li class="work-item"><span class="wi-yr">2018</span><span class="wi-title">Flag Ship</span><span
+                class="wi-type">Single</span></li>
+          </ol>
 
           <!-- 【グループ2】楽曲提供・編曲（他アーティストへのクライアントワーク） -->
           <h3 class="group-title reveal" style="margin-top:54px">楽曲提供・編曲<span class="en">Client Works</span></h3>
@@ -1969,7 +1974,9 @@
           var t = doc.getElementById(this.getAttribute('data-target'));
           if (t) {
             e.preventDefault();
-            t.scrollIntoView({ behavior: 'smooth' });
+            /* スクロール時の「ゆっくり滑る」挙動は CSS の html { scroll-behavior: smooth } で
+               一元管理しているので、ここでは behavior 指定なし（CSS の値が自動で使われる） */
+            t.scrollIntoView();
           }
           closeMenu();
         });
