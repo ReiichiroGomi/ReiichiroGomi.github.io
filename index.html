@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="ja">
+<!-- ▼ class="js-loading" は GSAP 読み込み中だけ本文を一瞬隠す目印（ちらつき防止）。
+     JS で外すので、編集時にこのクラスは消さないでください。 -->
+<html lang="ja" class="js-loading">
 
 <head>
   <meta charset="UTF-8">
@@ -135,6 +137,16 @@
     .reveal,
     .h-anim {
       will-change: opacity, transform, filter
+    }
+
+    /* ▼ FOUC（読み込み時の一瞬のちらつき）対策。
+       <html class="js-loading"> が付いている間だけアニメ対象を隠し、JS が外したタイミングで一気にアニメ開始する。
+       GSAP CDN 障害や JS エラー時は IIFE の冒頭でフェイルセーフが js-loading を外し、
+       それでも残った場合は 2 秒のタイムアウト保険（<script> 側）で強制解除される。
+       JS 無効環境は <noscript> 側のスタイルで上書きされるため、いずれにせよ本文は必ず表示される。 */
+    html.js-loading .reveal,
+    html.js-loading .h-anim {
+      opacity: 0;
     }
 
     /* ---------- Header ---------- */
@@ -1441,6 +1453,15 @@
       }
     }
   </style>
+  <!-- ▼ JavaScript を無効にしているブラウザでも本文が読めるように、js-loading の hidden 状態を打ち消す保険。 -->
+  <noscript>
+    <style>
+      html.js-loading .reveal,
+      html.js-loading .h-anim {
+        opacity: 1 !important;
+      }
+    </style>
+  </noscript>
 </head>
 
 <body>
@@ -1921,6 +1942,11 @@
      ここから下は「動き」と「メール宛先」の設定です。
      変えるのは基本「メール宛先」だけでOK（上の方にコメントあり）。
      ==================================================================== -->
+  <!-- ▼ FOUC 対策の最終保険。GSAP の CDN が落ちていて後続スクリプトが走らない最悪ケースでも、
+       2 秒後には js-loading を強制解除して本文を見せる（グレースフル劣化の維持）。 -->
+  <script>
+    setTimeout(function () { document.documentElement.classList.remove('js-loading'); }, 2000);
+  </script>
   <!-- アニメーション用の部品を読み込み（インターネットに繋がっている必要があります。中身はそのままでOKです） -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -2022,6 +2048,8 @@
       /* ---- animation layer (graceful fallback) ---- */
       var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!window.gsap || reduce) {
+        /* GSAP 無し or アニメ抑制設定なら、ちらつき防止の hidden を即座に解除して通常表示に戻す */
+        doc.documentElement.classList.remove('js-loading');
         return; /* content already visible by default; skip animation */
       }
 
@@ -2029,8 +2057,10 @@
         gsap.registerPlugin(ScrollTrigger);
 
         /* content is visible by default -> establish hidden states now that GSAP is ready */
+        /* CSS 側の js-loading を外す直前に GSAP の hidden を当てることで、可視フレームを挟まずに切り替える */
         gsap.set('.reveal', { opacity: 0, y: 30, filter: 'blur(7px)' });
         gsap.set('.h-anim', { opacity: 0, y: 26, filter: 'blur(9px)' });
+        doc.documentElement.classList.remove('js-loading');
 
         /* ヒーローアニメ：上から順にフェードイン */
         var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
@@ -2075,6 +2105,7 @@
         ScrollTrigger.refresh();
       } catch (err) {
         /* 万一うまく動かなくても、全部表示するようにしておく */
+        doc.documentElement.classList.remove('js-loading');
         doc.querySelectorAll('.reveal,.h-anim,.work-item,.credit-row').forEach(function (el) {
           el.style.opacity = '1'; el.style.transform = 'none'; el.style.filter = 'none';
         });
