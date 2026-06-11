@@ -6,8 +6,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- ▼ ブラウザのタブ・ブックマーク・検索結果に出るタイトル -->
-  <title>Reiichiro Gomi | 五味礼一郎</title>
+  <!-- ▼ ブラウザのタブ・ブックマーク・検索結果に出るタイトル。
+       「作曲・編曲・楽曲提供」は検索で見つけてもらうためのキーワードなので残すのがおすすめ -->
+  <title>五味礼一郎 | 作曲・編曲・楽曲提供 | Reiichiro Gomi</title>
   <!-- ▼ 検索結果やSNSでシェアされたときに出る説明文 -->
   <meta name="description" content="五味礼一郎（Reiichiro Gomi）作曲・編曲家。WELL DONE SABOTAGE Vo.Gt。歌もの／劇伴の作曲・編曲・楽曲提供のご依頼を承ります。">
   <!-- ▼ スマホでサイトを開いたときの画面上部バー（アドレスバー）の色。サイト背景と揃えて一体感を出す -->
@@ -19,13 +20,16 @@
   <meta property="og:title" content="五味礼一郎 | Composer & Arranger">
   <meta property="og:description"
     content="五味礼一郎（Reiichiro Gomi）作曲・編曲家。WELL DONE SABOTAGE Vo.Gt。歌もの／劇伴の作曲・編曲・楽曲提供のご依頼を承ります。">
-  <meta property="og:image" content="https://reiichirogomi.github.io/images/rei.jpg">
+  <meta property="og:image" content="https://reiichirogomi.github.io/images/ogp.jpg">
   <meta property="og:url" content="https://reiichirogomi.github.io/">
   <!-- ▼ X (旧Twitter) でURLを貼ったときに「横長の大きなカード」で出る指定。
-       より目立ち、クリック率が上がります。横長カードでは縦長写真は左右がクロップされます。
-       将来、横長 (1200×630推奨) の OGP 用画像を用意したら og:image のURLを差し替えてください。 -->
+       より目立ち、クリック率が上がります。
+       カード用の画像は images/ogp.jpg（横長 1200×630・写真＋名前入り）。
+       差し替えたい場合は、同じサイズの画像を images/ogp.jpg に上書き保存すればOKです。 -->
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <!-- ▼ iPhone/iPad で「ホーム画面に追加」したときに使われるアイコン -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <!-- ▼ 構造化データ（Googleなどの検索結果で、名前・肩書き・SNSなどを綺麗に表示してもらうための情報）。
        image と url は GitHub Pages の本番URLの絶対アドレスにしてあります。
        公開先ドメインが変わった場合は https://reiichirogomi.github.io/ の部分を書き換えてください。
@@ -311,7 +315,7 @@
       font-weight: 400;
       font-size: clamp(14px, 2.1vw, 23px);
       letter-spacing: .14em;
-      color: rgba(243, 236, 226, .45);
+      color: rgba(243, 236, 226, .62);
       margin-top: 18px
     }
 
@@ -327,7 +331,7 @@
     .hero .tag {
       font-size: clamp(9px, .9vw, 11px);
       letter-spacing: .3em;
-      color: rgba(243, 236, 226, .36);
+      color: rgba(243, 236, 226, .6);
       text-transform: uppercase
     }
 
@@ -342,9 +346,9 @@
       font-size: 10px;
       letter-spacing: .12em;
       padding: 4px 13px;
-      border: 1px solid rgba(243, 236, 226, .12);
+      border: 1px solid rgba(243, 236, 226, .28);
       border-radius: 30px;
-      color: rgba(243, 236, 226, .38)
+      color: rgba(243, 236, 226, .62)
     }
 
     .scrollcue {
@@ -445,27 +449,8 @@
       background: var(--bg)
     }
 
-    .about-header {
+    #about .sec-head {
       margin-bottom: 52px;
-    }
-
-    .about-heading {
-      font-family: var(--font-display);
-      /* ▼ 画面幅に応じて 36〜52px の範囲で自動調整（他の見出しと揃える）。スマホで窮屈にならない */
-      font-size: clamp(36px, 8vw, 52px);
-      font-weight: 400;
-      letter-spacing: .08em;
-      line-height: 1;
-      color: var(--ink);
-      margin: 0 0 14px;
-    }
-
-    .about-subcopy {
-      font-family: var(--font-serif);
-      font-size: 13.5px;
-      letter-spacing: .12em;
-      color: var(--muted);
-      margin: 0;
     }
 
     .about-grid {
@@ -600,7 +585,7 @@
     }
 
     #works .sec-head .sub {
-      color: rgba(243, 236, 226, .38);
+      color: rgba(243, 236, 226, .55);
       margin-top: 8px
     }
 
@@ -707,13 +692,6 @@
       gap: 28px;
       padding: 19px 4px;
       border-bottom: 1px solid rgba(243, 236, 226, .09);
-      transition: border-color .3s ease, transform .35s cubic-bezier(.16, 1, .3, 1);
-      cursor: default;
-    }
-
-    .work-item:hover {
-      border-color: var(--accent);
-      transform: translateX(8px)
     }
 
     .work-item .wi-yr {
@@ -836,7 +814,7 @@
     .credit-songs li .role {
       display: block;
       font-size: 11.5px;
-      color: rgba(243, 236, 226, .36);
+      color: rgba(243, 236, 226, .58);
       letter-spacing: .03em;
       margin-top: 2px
     }
@@ -1265,7 +1243,7 @@
        「運営されているサイト」感を出す。中央寄せ＋折返し可能なフレックス */
     footer {
       background: var(--hero-1);
-      color: rgba(243, 236, 226, .38);
+      color: rgba(243, 236, 226, .55);
       text-align: center;
       padding: 40px 20px;
       font-size: 12px;
@@ -1285,7 +1263,7 @@
     }
 
     .footer-updated {
-      color: rgba(243, 236, 226, .25);
+      color: rgba(243, 236, 226, .45);
       font-size: 11px;
       letter-spacing: .08em
     }
@@ -1553,9 +1531,12 @@
      ==================================================================== -->
   <section id="about">
     <div class="wrap">
-      <!-- ▼ セクション見出し。ABOUTの大きさは .about-heading の font-size で調整できます -->
-      <div class="about-header reveal">
-        <h2 class="about-heading">ABOUT</h2>
+      <!-- ▼ セクション見出し（Works/Services と同じ形式）。
+           日本語見出しは <h2>〜</h2>、小さな英字は <p class="sub">〜</p> を書き換え -->
+      <div class="sec-head reveal">
+        <span class="num">About</span>
+        <h2>プロフィール</h2>
+        <p class="sub">PROFILE</p>
       </div>
       <div class="about-grid">
         <!-- ▼ 写真。src のファイル名を自分の写真に合わせてください（縦長3:4が綺麗です） -->
