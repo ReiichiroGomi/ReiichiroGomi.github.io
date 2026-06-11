@@ -1,5 +1,6 @@
-# Claude Code のローカル専用メモ（リポジトリには含めない）
-CLAUDE.md
+# Claude Code のローカル専用メモ・作業ディレクトリ（リポジトリには含めない）
+# ※ CLAUDE.md は共有ドキュメントとしてコミットする（CLAUDE.local.md が個人メモ）
+CLAUDE.local.md
 .claude/
 .playwright-mcp/
 
